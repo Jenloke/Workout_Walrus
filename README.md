@@ -1,6 +1,6 @@
-# Workout_Walrus
+# Workout Walrus
 
-## A Fitness Application
+##### A Fitness Application
 
 ### Members
 
