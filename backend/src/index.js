@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const userRoutes = require('./routes/users');
+const userRoutes = require('../models/user');
 
 const uri = "mongodb+srv://workoutWalrus:WorkoutWalrus123@cluster0.ewa6d4n.mongodb.net/workoutwalrus?retryWrites=true&w=majority";
 const PORT = 3000;
