@@ -50,15 +50,6 @@ axios.get('https://api.api-ninjas.com/v1/exercises?muscle=biceps', {
       // handle error
       console.log(error);
     })
-    .finally(function () {
-      // always executed
-    });
-
-app.get('/api.api-ninjas.com/v1/exercises?muscle=&biceps?X-Api-Key=H2hjF7GM2NnHzuZTm5Nakw==cnVmqdsMHbfV8EVb', 
-  (req, res) => {
-    console.log(res);  
-  }
-);
 
 // app.post('/login', (req, res) => {
 //   // if (req.body.constructor === object && object.keys(req.body).length === 0) {
