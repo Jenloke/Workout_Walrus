@@ -37,19 +37,29 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 //   else console.log(body)
 // });
 
-axios.get('https://api.api-ninjas.com/v1/exercises?muscle=biceps', {
-  headers: {
-    'X-Api-Key': 'H2hjF7GM2NnHzuZTm5Nakw==cnVmqdsMHbfV8EVb'
-  }
-  })
-    .then(function (response) {
-      // handle success
-      console.log(response);
+app.get('/exercise', (req, res) => {
+  axios.get('https://api.api-ninjas.com/v1/exercises?muscle=biceps', {
+    headers: {
+      'X-Api-Key': 'H2hjF7GM2NnHzuZTm5Nakw==cnVmqdsMHbfV8EVb'
+    }
     })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
+      .then((response) => {
+        // handle success
+
+        // console.log(response.data);
+        // console.log(response.status);
+        // console.log(response.statusText);
+        // console.log(response.headers);
+        // console.log(response.config);
+
+        // destructure data first to extract proper exercise methods
+        res.send(response.data);
+      })
+      .catch((error) => {
+        // handle error
+        console.log(error);
+      })
+});
 
 // app.post('/login', (req, res) => {
 //   // if (req.body.constructor === object && object.keys(req.body).length === 0) {
