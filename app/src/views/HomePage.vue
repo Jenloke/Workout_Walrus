@@ -30,10 +30,16 @@ async function getExercise(url = 'https://api.api-ninjas.com/v1/exercises?muscle
     headers: {
       'X-Api-Key': 'H2hjF7GM2NnHzuZTm5Nakw==cnVmqdsMHbfV8EVb'
     }
-  })
+  });
   return response.json();
 }
-console.log(getExercise());
+// console.log(getExercise());
+
+async function getUsers(url = "http://localhost:3000/users") {
+  const response = await fetch(url);
+  return response.json();
+}
+console.log(getUsers());
 
 
 </script>
