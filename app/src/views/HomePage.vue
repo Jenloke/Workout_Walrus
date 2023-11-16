@@ -23,6 +23,19 @@
 
 <script setup lang="ts">
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+
+async function getExercise(url = 'https://api.api-ninjas.com/v1/exercises?muscle=biceps') {
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'X-Api-Key': 'H2hjF7GM2NnHzuZTm5Nakw==cnVmqdsMHbfV8EVb'
+    }
+  })
+  return response.json();
+}
+console.log(getExercise());
+
+
 </script>
 
 <style scoped>
