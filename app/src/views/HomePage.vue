@@ -24,6 +24,10 @@
 <script setup lang="ts">
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 
+const type = ['cardio', 'olympic_weightlifting', 'plyometrics', 'powerlifting', 'strength', 'stretching', 'strongman'];
+const muscle = ['abdominals',  'abductors', 'adductors', 'biceps', 'calves', 'chest', 'forearms', 'glutes', 'hamstrings', 'lats', 'lower_back', 'middle_back', 'neck', 'quadriceps', 'traps', 'triceps'];
+const difficulty = ['beginner', 'intermediate', 'expert'];
+
 async function getExercise(url = 'https://api.api-ninjas.com/v1/exercises?muscle=biceps') {
   const response = await fetch(url, {
     method: 'GET',
@@ -35,12 +39,11 @@ async function getExercise(url = 'https://api.api-ninjas.com/v1/exercises?muscle
 }
 // console.log(getExercise());
 
-async function getUsers(url = "http://localhost:3000/users") {
-  const response = await fetch(url);
-  return response.json();
-}
-console.log(getUsers());
-
+// async function getUsers(url = "http://localhost:3000/users") {
+//   const response = await fetch(url);
+//   return response.json();
+// }
+// console.log(getUsers());
 
 </script>
 
