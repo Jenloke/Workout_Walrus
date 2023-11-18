@@ -7,7 +7,8 @@
     </ion-header>
 
     <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
+      
+      <!-- <ion-header collapse="condense">
         <ion-toolbar>
           <ion-title size="large">Blank</ion-title>
         </ion-toolbar>
@@ -16,28 +17,42 @@
       <div id="container">
         <strong>Ready to create an app?</strong>
         <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+      </div> -->
+      
+      <div>
+        <ion-title size="large">Muscle</ion-title>
+      </div>
+
+      <div>
+        <ion-title size="large">Difficulty</ion-title>
+        <ion-radio-group value="beginner">
+          <ion-radio value="beginner" label-placement="end" class="radio-choices">Beginner</ion-radio><br />
+          <ion-radio value="intermediate" label-placement="end" class="radio-choices">Intermediate</ion-radio><br />
+          <ion-radio value="expert" label-placement="end" class="radio-choices">Expert</ion-radio><br />
+        </ion-radio-group>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { IonContent, IonHeader, IonPage, IonRadio, IonRadioGroup, IonTitle, IonToolbar } from '@ionic/vue';
 
 const type = ['cardio', 'olympic_weightlifting', 'plyometrics', 'powerlifting', 'strength', 'stretching', 'strongman'];
 const muscle = ['abdominals',  'abductors', 'adductors', 'biceps', 'calves', 'chest', 'forearms', 'glutes', 'hamstrings', 'lats', 'lower_back', 'middle_back', 'neck', 'quadriceps', 'traps', 'triceps'];
 const difficulty = ['beginner', 'intermediate', 'expert'];
 
-async function getExercise(url = 'https://api.api-ninjas.com/v1/exercises?muscle=biceps') {
+let urlExercise = `https://api.api-ninjas.com/v1/exercises?type=${type[0]}&?muscle=${muscle[7]}&?difficulty${difficulty[0]}`;
+
+async function getExercise(url = urlExercise) {
   const response = await fetch(url, {
-    method: 'GET',
     headers: {
       'X-Api-Key': 'H2hjF7GM2NnHzuZTm5Nakw==cnVmqdsMHbfV8EVb'
     }
   });
   return response.json();
 }
-// console.log(getExercise());
+console.log(getExercise());
 
 // async function getUsers(url = "http://localhost:3000/users") {
 //   const response = await fetch(url);
