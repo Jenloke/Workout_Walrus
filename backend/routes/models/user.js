@@ -12,12 +12,20 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    email: {
+    username: {
         type: String,
         required: true
     },
     password: {
         type: String,
+        required: true
+    },
+    height: {
+        type: String,
+        required: true
+    },
+    weight: {
+        type: String, 
         required: true
     }
 });
