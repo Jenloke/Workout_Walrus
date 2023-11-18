@@ -95,7 +95,7 @@
   </ion-page>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 import { IonRadio, IonRadioGroup } from '@ionic/vue';
 import { IonItem, IonList, IonSelect, IonSelectOption } from '@ionic/vue';
@@ -130,7 +130,7 @@ async function getExercise(url = urlExercise) {
 defineComponent({
   components: { IonItem, IonList, IonSelect, IonSelectOption },
   methods: {
-    handleChange(ev: any) {
+    handleChange(ev) {
       console.log('ionChange fired with value: ' + ev.detail.value);
     },
     handleCancel() {
@@ -145,7 +145,7 @@ defineComponent({
 defineComponent({
     components: { IonItem, IonList, IonSelect, IonSelectOption },
     methods: {
-      handleChange(ev: any) {
+      handleChange(ev) {
         console.log('ionChange fired with value: ' + ev.detail.value);
       },
       handleCancel() {
