@@ -34,25 +34,10 @@
 
       <!-- <ion-title size="large">Muscle</ion-title> -->
       <ion-item>
-        <!-- const muscle = ['abdominals', 'abductors', 'adductors', 'biceps', 'calves', 'chest', 'forearms', 'glutes', 'hamstrings', 'lats', 'lower_back', 'middle_back', 'neck', 'quadriceps', 'traps', 'triceps']; -->
         <ion-select label="Muscle" label-placement="fixed" placeholder="Select One">
-          <!-- <ion-select-option value="abdominals">Abdominals</ion-select-option>
-          <ion-select-option value="abductors">Abductors</ion-select-option>
-          <ion-select-option value="adductors">Adductors</ion-select-option>
-          <ion-select-option value="biceps">Biceps</ion-select-option>
-          <ion-select-option value="calves">Calves</ion-select-option>
-          <ion-select-option value="chest">Chest</ion-select-option>
-          <ion-select-option value="forearms">Forearms</ion-select-option>
-          <ion-select-option value="glutes">Glutes</ion-select-option>
-          <ion-select-option value="hamstrings">Hamstrings</ion-select-option>
-          <ion-select-option value="lats">Lats</ion-select-option>
-          <ion-select-option value="lower_back">Lower Back</ion-select-option>
-          <ion-select-option value="middle_back">Middle Back</ion-select-option>
-          <ion-select-option value="neck">Neck</ion-select-option>
-          <ion-select-option value="quadriceps">Quadriceps</ion-select-option>
-          <ion-select-option value="triceps">Triceps</ion-select-option> -->
-
-          <ion-select-option v-for="muscles in muscles" value="{{ muscles }}">{{ muscles }}</ion-select-option>
+          <ion-select-option v-for="x in muscles" value="{{ x }}">
+            {{ x }}
+          </ion-select-option>
         </ion-select>
       </ion-item>
 
@@ -71,20 +56,6 @@
         </ion-item>
       </ion-list> -->
 
-      <ion-list>
-        <ion-item>
-          <ion-select
-            aria-label="Fruit"
-            placeholder="Select fruit"
-            @ionChange="handleChange($event)"
-          >
-            <ion-select-option value="apples">Apples</ion-select-option>
-            <ion-select-option value="oranges">Oranges</ion-select-option>
-            <ion-select-option value="bananas">Bananas</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-list>
-
       <!-- <ion-item>
         <ion-title size="large">Difficulty</ion-title>
         <ion-radio-group value="beginner">
@@ -93,7 +64,6 @@
           <ion-radio value="expert" label-placement="end" class="radio-choices">Expert</ion-radio><br />
         </ion-radio-group>
       </ion-item> -->
-    
       <List></List>
     </ion-content>
   </ion-page>
@@ -115,7 +85,7 @@ const type = ['cardio', 'plyometrics', 'powerlifting', 'strength', 'stretching']
 const muscles = ['abdominals', 'biceps', 'calves', 'chest', 'forearms', 'glutes', 'hamstrings', 'lats', 'lower_back', 'middle_back', 'neck', 'quadriceps', 'triceps'];
 const difficulty = ['beginner', 'intermediate', 'expert'];
 
-let urlExercise = `https://api.api-ninjas.com/v1/exercises?type=${type[0]}&?muscle=${muscle[7]}&?difficulty${difficulty[0]}`;
+let urlExercise = `https://api.api-ninjas.com/v1/exercises?type=${type[0]}&?muscle=${muscles[7]}&?difficulty${difficulty[0]}`;
 
 async function getExercise(url = urlExercise) {
   const response = await fetch(url, {
@@ -132,36 +102,6 @@ async function getExercise(url = urlExercise) {
 //   return response.json();
 // }
 // console.log(getUsers());
-
-defineComponent({
-  components: { IonItem, IonList, IonSelect, IonSelectOption },
-  methods: {
-    handleChange(ev) {
-      console.log('ionChange fired with value: ' + ev.detail.value);
-    },
-    handleCancel() {
-      console.log('ionCancel fired');
-    },
-    handleDismiss() {
-      console.log('ionDismiss fired');
-    }
-  }
-})
-
-defineComponent({
-    components: { IonItem, IonList, IonSelect, IonSelectOption },
-    methods: {
-      handleChange(ev) {
-        console.log('ionChange fired with value: ' + ev.detail.value);
-      },
-      handleCancel() {
-        console.log('ionCancel fired');
-      },
-      handleDismiss() {
-        console.log('ionDismiss fired');
-      },
-    },
-  });
 
 </script>
 
