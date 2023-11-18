@@ -93,9 +93,9 @@
           <ion-radio value="expert" label-placement="end" class="radio-choices">Expert</ion-radio><br />
         </ion-radio-group>
       </ion-item> -->
+    
+      <List></List>
     </ion-content>
-
-    <List></List>
   </ion-page>
 </template>
 
