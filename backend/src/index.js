@@ -1,5 +1,4 @@
 const express = require('express');
-const axios = require('axios').default;
 const mongoose = require('mongoose');
 
 const app = express();
@@ -24,39 +23,3 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   })
   .catch(err => console.error('Error connecting to MongoDB:', err));
 
-// const request = require('request');
-// var muscle = 'biceps';
-// request.get({
-//   url: 'https://api.api-ninjas.com/v1/exercises?muscle=' + muscle,
-//   headers: {
-//   'X-Api-Key': 'H2hjF7GM2NnHzuZTm5Nakw==cnVmqdsMHbfV8EVb'
-//   },
-// }, (error, response, body) => {
-//   if(error) return console.error('Request failed:', error);
-//   else if(response.statusCode != 200) return console.error('Error:', response.statusCode, body.toString('utf8'));
-//   else console.log(body)
-// });
-
-app.get('/exercise', (req, res) => {
-  axios.get('https://api.api-ninjas.com/v1/exercises?muscle=biceps', {
-    headers: {
-      'X-Api-Key': 'H2hjF7GM2NnHzuZTm5Nakw==cnVmqdsMHbfV8EVb'
-    }
-    })
-      .then((response) => {
-        // handle success
-
-        // console.log(response.data);
-        // console.log(response.status);
-        // console.log(response.statusText);
-        // console.log(response.headers);
-        // console.log(response.config);
-
-        // destructure data first to extract proper exercise methods
-        res.send(response.data);
-      })
-      .catch((error) => {
-        // handle error
-        console.log(error);
-      })
-});
