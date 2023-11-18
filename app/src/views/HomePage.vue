@@ -52,9 +52,7 @@
           <ion-select-option value="quadriceps">Quadriceps</ion-select-option>
           <ion-select-option value="triceps">Triceps</ion-select-option> -->
 
-          <ion-select-option v-for="x in muscle" value="{{ x }}">
-            {{ x }}
-          </ion-select-option>
+          <ion-select-option v-for="muscles in muscles" value="{{ muscles }}">{{ muscles }}</ion-select-option>
         </ion-select>
       </ion-item>
 
@@ -114,7 +112,7 @@ import { defineComponent } from 'vue';
 // const type = ['cardio', 'olympic_weightlifting', 'plyometrics', 'powerlifting', 'strength', 'stretching', 'strongman'];
 const type = ['cardio', 'plyometrics', 'powerlifting', 'strength', 'stretching'];
 // const muscle = ['abdominals', 'abductors', 'adductors', 'biceps', 'calves', 'chest', 'forearms', 'glutes', 'hamstrings', 'lats', 'lower_back', 'middle_back', 'neck', 'quadriceps', 'traps', 'triceps'];
-const muscle = ['abdominals', 'biceps', 'calves', 'chest', 'forearms', 'glutes', 'hamstrings', 'lats', 'lower_back', 'middle_back', 'neck', 'quadriceps', 'triceps'];
+const muscles = ['abdominals', 'biceps', 'calves', 'chest', 'forearms', 'glutes', 'hamstrings', 'lats', 'lower_back', 'middle_back', 'neck', 'quadriceps', 'triceps'];
 const difficulty = ['beginner', 'intermediate', 'expert'];
 
 let urlExercise = `https://api.api-ninjas.com/v1/exercises?type=${type[0]}&?muscle=${muscle[7]}&?difficulty${difficulty[0]}`;
