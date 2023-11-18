@@ -36,7 +36,7 @@
       <ion-item>
         <!-- const muscle = ['abdominals', 'abductors', 'adductors', 'biceps', 'calves', 'chest', 'forearms', 'glutes', 'hamstrings', 'lats', 'lower_back', 'middle_back', 'neck', 'quadriceps', 'traps', 'triceps']; -->
         <ion-select label="Muscle" label-placement="fixed" placeholder="Select One">
-          <ion-select-option value="abdominals">Abdominals</ion-select-option>
+          <!-- <ion-select-option value="abdominals">Abdominals</ion-select-option>
           <ion-select-option value="abductors">Abductors</ion-select-option>
           <ion-select-option value="adductors">Adductors</ion-select-option>
           <ion-select-option value="biceps">Biceps</ion-select-option>
@@ -50,7 +50,11 @@
           <ion-select-option value="middle_back">Middle Back</ion-select-option>
           <ion-select-option value="neck">Neck</ion-select-option>
           <ion-select-option value="quadriceps">Quadriceps</ion-select-option>
-          <ion-select-option value="triceps">Triceps</ion-select-option>
+          <ion-select-option value="triceps">Triceps</ion-select-option> -->
+
+          <ion-select-option v-for="x in muscle" value="{{ x }}">
+            {{ x }}
+          </ion-select-option>
         </ion-select>
       </ion-item>
 
@@ -92,6 +96,8 @@
         </ion-radio-group>
       </ion-item> -->
     </ion-content>
+
+    <List></List>
   </ion-page>
 </template>
 
@@ -100,6 +106,8 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue
 import { IonRadio, IonRadioGroup } from '@ionic/vue';
 import { IonItem, IonList, IonSelect, IonSelectOption } from '@ionic/vue';
 // import { IonItem, IonSelect, IonSelectOption } from '@ionic/vue';
+
+import List from './List.vue';
 
 import { defineComponent } from 'vue';
 
