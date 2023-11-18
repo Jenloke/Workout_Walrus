@@ -5,8 +5,8 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = 3000;
 
-const userRoutes = require('../models/user');
-const uri = "mongodb+srv://workoutWalrus:WorkoutWalrus123@cluster0.ewa6d4n.mongodb.net/workoutwalrus?retryWrites=true&w=majority";
+const userRoutes = require('../routes/models/user');
+const uri = "mongodb+srv://workoutWalrus:123456789workoutWalrus@cluster0.ewa6d4n.mongodb.net/workoutwalrus?retryWrites=true&w=majority";
 
 // const USERS = require('../users/users');
 
@@ -17,7 +17,7 @@ app.use(express.json());
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB');
-    app.use('/api', userRoutes)
+    app.use('', userRoutes)
     app.listen(PORT, () => {
       console.log(`Server started successfully at port ${PORT}`);
     });
