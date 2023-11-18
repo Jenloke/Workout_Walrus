@@ -4,30 +4,13 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     /* Hindi pa final, hindi pa kasi ako sure kung anong mga
     document/field ang pwede sa database */
-    name: {
-        type: String,
-        required: true
-    },
-    birthday: {
-        type: String,
-        required: true
-    },
-    username: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    height: {
-        type: String,
-        required: true
-    },
-    weight: {
-        type: String, 
-        required: true
-    }
+    name: String,
+    birthday: String,
+    username: String,
+    password: String,
+    height: Number,
+    weight: Number
+
 });
 
 const User = mongoose.model('User', userSchema);
