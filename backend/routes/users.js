@@ -3,7 +3,7 @@ const User = require('./models/user'); // Assuming your user model file is in '.
 
 const router = express.Router();
 
-router.get('/users', async (req, res) => {
+router.route('/users').get(async (req, res) => {
   try {
     const users = await User.find();
     //res.status(200).send(users)
@@ -14,7 +14,7 @@ router.get('/users', async (req, res) => {
   }
 });
 
-router.get('/users/:username', async (req, res) => {
+router.route('/users/:username').get(async (req, res) => {
   try {
     const userName = {username: req.params.username}
 
@@ -27,7 +27,7 @@ router.get('/users/:username', async (req, res) => {
   }
 });
 
-router.post('/login', async (req, res) => {
+router.route('/login').post(async (req, res) => {
   const query = {
     username: req.body.username,
     password: req.body.password
@@ -38,7 +38,6 @@ router.post('/login', async (req, res) => {
     if (user != null){
       const objToSend = {id: user.id, height: user.height, weight: user.weight};
       res.json(objToSend)
-      //res.status(200).send(JSON.stringify(objToSend));
     }
 
     if (!user) {
@@ -51,7 +50,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/signup', async (req, res) => {
+router.route('/signup').post(async (req, res) => {
   const query = { username: req.body.username}
   try{
     checkUser = await User.findOne(query)
