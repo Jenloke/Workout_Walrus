@@ -32,7 +32,12 @@
       </ion-item>
 
       <ion-item>
-        <ion-select label="Muscle" label-placement="fixed" placeholder="Select One">
+        <ion-select 
+          label="Muscle" 
+          label-placement="fixed" 
+          placeholder="Select One" 
+          @ion-change="console.log($event.detail.value)"
+        >
           <ion-select-option v-for="x in muscles" value="{{ x.value }}">
             {{ x.name }}
           </ion-select-option>
@@ -46,15 +51,17 @@
 
 <script setup>
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
-import { IonRadio, IonRadioGroup } from '@ionic/vue';
-import { IonItem, IonList, IonSelect, IonSelectOption } from '@ionic/vue';
-// import { IonItem, IonSelect, IonSelectOption } from '@ionic/vue';
+import { IonItem, IonSelect, IonSelectOption } from '@ionic/vue';
+// import { IonRadio, IonRadioGroup } from '@ionic/vue';
+// import { IonItem, IonList, IonSelect, IonSelectOption } from '@ionic/vue';
 
 import List from './List.vue';
-import { types, muscles, difficulties } from '../selection/types'
+import { muscles } from '../selection/types';
+import { vModelCheckbox, vModelDynamic } from 'vue';
+
+// List.handleChange();
 
 // let urlExercise = `https://api.api-ninjas.com/v1/exercises?type=${type[0]}&?muscle=${muscles[7]}&?difficulty${difficulty[0]}`;
-
 async function getExercise(url = urlExercise) {
   const response = await fetch(url, {
     headers: {
