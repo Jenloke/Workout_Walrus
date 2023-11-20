@@ -79,14 +79,19 @@
 </template>
 
 <script>
-import tab2 from './Tab2Page.js'
 import { IonButton, IonAvatar, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonLabel, IonList, IonCard, IonCardContent } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import ExploreContainer from '@/components/ExploreContainer.vue';
+import tab2 from './Tab2Page.js'
 
-export default {
-  ...tab2,
-}
+/* export default {
+  ...tab2
+} */
+export default defineComponent({
+  components: { IonPage, IonContent },
+  ...tab2
+});
+
 
 
 </script>

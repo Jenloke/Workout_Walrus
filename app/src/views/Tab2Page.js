@@ -4,9 +4,10 @@ export default {
   name: 'Tab2Page',
   data() {
     return {
-      username: 'Username',
-      height: 156,
-      weight: 56,
+      username: "Username",
+      height: 165,
+      weight: 65,
+      hasPulled: false
     };
   }, mounted() {
     console.log("mounted")
@@ -16,12 +17,13 @@ export default {
     async fetchData() {
       try {
         const response = await axios.get('http://localhost:3000/user?username=exampleUser');
-        this.username =  response.data.username
-        this.height =  response.data.height
-        this.weight =  response.data.weight
-
+        if(!this.hasPulled){
+          this.username =  response.data.username
+          this.height =  response.data.height
+          this.weight =  response.data.weight
+          this.hasPulled = true
+        }
       } catch (error) {
-        // Handle signup error (e.g., show an error message)
         console.error('Error fetching data:', error);
       }
     },
