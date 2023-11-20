@@ -20,7 +20,6 @@
       </div> -->
       
       <ion-item>
-        <!-- const type = ['cardio', 'olympic_weightlifting', 'plyometrics', 'powerlifting', 'strength', 'stretching', 'strongman']; -->
         <ion-select label="Type" label-placement="fixed" placeholder="Cardio">
           <ion-select-option value="cardio">Cardio</ion-select-option>
           <ion-select-option value="olympic_weightlifting">Olympic Weightlifting</ion-select-option>
@@ -32,39 +31,15 @@
         </ion-select>
       </ion-item>
 
-      <!-- <ion-title size="large">Muscle</ion-title> -->
       <ion-item>
         <ion-select label="Muscle" label-placement="fixed" placeholder="Select One">
-          <ion-select-option v-for="x in muscles" value="{{ x }}">
-            {{ x }}
+          <ion-select-option v-for="x in muscles" value="{{ x.value }}">
+            {{ x.name }}
           </ion-select-option>
         </ion-select>
       </ion-item>
 
-      <!-- <ion-list>
-        <ion-item>
-          <ion-select 
-            label="Difficulty" 
-            label-placement="fixed" 
-            placeholder="Beginner"
-            @ionChange="handleChange($event)"
-          >
-            <ion-select-option value="beginner">Beginner</ion-select-option>
-            <ion-select-option value="intermediate">Intermediate</ion-select-option>
-            <ion-select-option value="expert">Expert</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-list> -->
-
-      <!-- <ion-item>
-        <ion-title size="large">Difficulty</ion-title>
-        <ion-radio-group value="beginner">
-          <ion-radio value="beginner" label-placement="end" class="radio-choices">Beginner</ion-radio><br />
-          <ion-radio value="intermediate" label-placement="end" class="radio-choices">Intermediate</ion-radio><br />
-          <ion-radio value="expert" label-placement="end" class="radio-choices">Expert</ion-radio><br />
-        </ion-radio-group>
-      </ion-item> -->
-      <List></List>
+      <List/>
     </ion-content>
   </ion-page>
 </template>
@@ -76,16 +51,9 @@ import { IonItem, IonList, IonSelect, IonSelectOption } from '@ionic/vue';
 // import { IonItem, IonSelect, IonSelectOption } from '@ionic/vue';
 
 import List from './List.vue';
+import { types, muscles, difficulties } from '../selection/types'
 
-import { defineComponent } from 'vue';
-
-// const type = ['cardio', 'olympic_weightlifting', 'plyometrics', 'powerlifting', 'strength', 'stretching', 'strongman'];
-const type = ['cardio', 'plyometrics', 'powerlifting', 'strength', 'stretching'];
-// const muscle = ['abdominals', 'abductors', 'adductors', 'biceps', 'calves', 'chest', 'forearms', 'glutes', 'hamstrings', 'lats', 'lower_back', 'middle_back', 'neck', 'quadriceps', 'traps', 'triceps'];
-const muscles = ['abdominals', 'biceps', 'calves', 'chest', 'forearms', 'glutes', 'hamstrings', 'lats', 'lower_back', 'middle_back', 'neck', 'quadriceps', 'triceps'];
-const difficulty = ['beginner', 'intermediate', 'expert'];
-
-let urlExercise = `https://api.api-ninjas.com/v1/exercises?type=${type[0]}&?muscle=${muscles[7]}&?difficulty${difficulty[0]}`;
+// let urlExercise = `https://api.api-ninjas.com/v1/exercises?type=${type[0]}&?muscle=${muscles[7]}&?difficulty${difficulty[0]}`;
 
 async function getExercise(url = urlExercise) {
   const response = await fetch(url, {
@@ -102,7 +70,6 @@ async function getExercise(url = urlExercise) {
 //   return response.json();
 // }
 // console.log(getUsers());
-
 </script>
 
 <style scoped>
