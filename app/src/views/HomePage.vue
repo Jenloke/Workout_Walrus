@@ -36,9 +36,10 @@
           label="Muscle" 
           label-placement="fixed" 
           placeholder="Select One" 
-          @ion-change="console.log($event.detail.value)"
+          @ion-change="console.log(a($event.detail.value))"
         >
-          <ion-select-option v-for="x in muscles" value="{{ x.value }}">
+          <IonSelectOption value="asd">ASD</IonSelectOption>
+          <ion-select-option v-for="x in muscles" :key="x.value" value="{{ x.value }}">
             {{ x.name }}
           </ion-select-option>
         </ion-select>
@@ -59,7 +60,12 @@ import List from './List.vue';
 import { muscles } from '../selection/types';
 import { vModelCheckbox, vModelDynamic } from 'vue';
 
-// List.handleChange();
+let a = (x) => {
+  console.log(x)
+  return x;
+};
+
+console.log(a);
 
 // let urlExercise = `https://api.api-ninjas.com/v1/exercises?type=${type[0]}&?muscle=${muscles[7]}&?difficulty${difficulty[0]}`;
 async function getExercise(url = urlExercise) {
