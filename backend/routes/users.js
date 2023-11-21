@@ -3,7 +3,7 @@ const User = require('./models/user'); // Assuming your user model file is in '.
 
 const router = express.Router();
 
-router.route('/users').get(async (req, res) => {
+router.get('/users',async (req, res) => {
   try {
     const users = await User.find();
     //res.status(200).send(users)
@@ -14,20 +14,29 @@ router.route('/users').get(async (req, res) => {
   }
 });
 
-router.route('/users/:username').get(async (req, res) => {
+router.get('/user',async (req, res) => {
   try {
-    const userName = {username: req.params.username}
+    const userquery = {username: req.query.username}
 
-    const user = await User.find(userName);
+    const user = await User.findOne(userquery);
+    if(!user){
+      res.status(404).send()
+    }
     //res.status(200).send(user)
-    res.json(user);
+    const responseData = {
+      username: user.username,
+      height: user.height,
+      weight: user.weight
+    }
+    res.json(responseData);
+    console.log(responseData)
   } catch (error) {
     console.error('Error fetching user:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
-router.route('/login').post(async (req, res) => {
+router.post('/login',async (req, res) => {
   const query = {
     username: req.body.username,
     password: req.body.password
@@ -50,7 +59,7 @@ router.route('/login').post(async (req, res) => {
   }
 });
 
-router.route('/signup').post(async (req, res) => {
+router.post('/signup',async (req, res) => {
   const query = { username: req.body.username}
   try{
     checkUser = await User.findOne(query)
