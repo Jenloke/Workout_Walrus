@@ -24,7 +24,7 @@
             label="Types" 
             label-placement="fixed" 
             placeholder="Select One" 
-            @ion-change="console.log($event.detail.value)"
+            @ion-change="paraExe[0]=$event.detail.value"
           >
             <ion-select-option v-for="(x, index) in types" :key="index" :value="x.value">
               {{ x.name }}
@@ -37,7 +37,7 @@
             label="Muscle" 
             label-placement="fixed" 
             placeholder="Select One" 
-            @ion-change="console.log($event.detail.value)"
+            @ion-change="paraExe[1]=$event.detail.value"
           >
             <ion-select-option v-for="(x, index) in muscles" :key="index" :value="x.value">
               {{ x.name }}
@@ -50,7 +50,7 @@
             label="Difficulties" 
             label-placement="fixed" 
             placeholder="Select One" 
-            @ion-change="console.log($event.detail.value)"
+            @ion-change="paraExe[2]=$event.detail.value"
           >
             <ion-select-option v-for="(x, index) in difficulties" :key="index" :value="x.value">
               {{ x.name }}
@@ -58,8 +58,11 @@
           </ion-select>
         </ion-item>
         
-        <!-- <List /> -->
+        <ion-button v-on:click="getExercise(`https://api.api-ninjas.com/v1/exercises?type=${paraExe[0]}&?muscle=${paraExe[1]}&?difficulty${paraExe[2]}`)"> 
+          Test
+        </ion-button>
 
+        <!-- <List /> -->
       </ion-list>
     </ion-content>
   </ion-page>
@@ -68,10 +71,13 @@
 <script setup>
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 import { IonItem, IonList, IonSelect, IonSelectOption } from '@ionic/vue';
+import { IonButton } from '@ionic/vue'
 // import { IonRadio, IonRadioGroup } from '@ionic/vue';
 
-import List from './List.vue';
+// import List from './List.vue';
 import { types, muscles, difficulties } from '../selection/types';
+
+const paraExe = [ '', '', ''];
 
 // let urlExercise = `https://api.api-ninjas.com/v1/exercises?type=${type[0]}&?muscle=${muscles[7]}&?difficulty${difficulty[0]}`;
 async function getExercise(url = urlExercise) {
@@ -80,9 +86,12 @@ async function getExercise(url = urlExercise) {
       'X-Api-Key': 'H2hjF7GM2NnHzuZTm5Nakw==cnVmqdsMHbfV8EVb'
     }
   });
-  return response.json();
+  console.log(response.json());
+  // return response.json();
 }
 // console.log(getExercise());
+
+// for
 
 // async function getUsers(url = "http://localhost:3000/users") {
 //   const response = await fetch(url);
