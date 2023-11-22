@@ -68,7 +68,7 @@
   </ion-page>
 </template>
 
-<script setup>
+<script>
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 import { IonItem, IonList, IonSelect, IonSelectOption } from '@ionic/vue';
 import { IonButton } from '@ionic/vue'
