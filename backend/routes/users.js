@@ -71,7 +71,8 @@ router.post('/signup',async (req, res) => {
         username: req.body.username,
         password: req.body.password,
         height: req.body.height,
-        weight: req.body.weight
+        weight: req.body.weight,
+        totalCalBurned: 0
       })
       newUser.save()
       res.json(newUser)

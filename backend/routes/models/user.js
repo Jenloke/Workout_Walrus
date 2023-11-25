@@ -5,12 +5,12 @@ const userSchema = new mongoose.Schema({
     /* Hindi pa final, hindi pa kasi ako sure kung anong mga
     document/field ang pwede sa database */
     name: String,
-    birthday: String,
+    birthday: Date,
     username: String,
     password: String,
     height: Number,
-    weight: Number
-
+    weight: Number,
+    totalCalBurned: Number
 });
 
 userSchema.set('collection', 'users')

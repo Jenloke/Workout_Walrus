@@ -1,21 +1,23 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-// import { RouteRecordRaw } from 'vue-router';
-import HomePage from '../views/HomePage.vue'
+import { defineAsyncComponent } from 'vue'
 import TabsPage from '../views/TabsPage.vue'
+import LoginPage from '../views/Login.vue'
+import RegisterPage from '../views/Register.vue'
 
 const routes = [
-/*   {
-    path: '/',
-    redirect: '/home'
-  },
-/*   {
-    path: '/home',
-    name: 'Home',
-    component: HomePage
-  } ,*/
   {
     path: '/',
-    redirect: '/tabs/tab1'
+    redirect: '/register'
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: LoginPage
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: RegisterPage
   },
   {
     path: '/tabs/',
@@ -27,20 +29,19 @@ const routes = [
       },
       {
         path: 'tab1',
-        component: () => import('@/views/Tab1Page.vue')
+        component: defineAsyncComponent(() => import('@/views/Tab1Page.vue'))
+      },
+      {
+        path: 'tab2/:username',
+        component: defineAsyncComponent(() => import('@/views/Tab2Page.vue'))
       },
       {
         path: 'tab2',
-        component: () => import('@/views/Tab2Page.vue')
+        component: defineAsyncComponent(() => import('@/views/Tab2Page.vue'))
       },
       {
         path: 'tab3',
-        component: () => import('@/views/Tab3Page.vue')
-      },
-      {
-        path: 'home',
-        name: 'Home',
-        component: HomePage
+        component: defineAsyncComponent(() => import('@/views/Tab3Page.vue'))
       }
     ]
   }

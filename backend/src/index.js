@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors')
-//const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = 3000;
@@ -13,7 +13,7 @@ const uri = "mongodb+srv://workoutWalrus:123456789workoutWalrus@cluster0.ewa6d4n
 
 // Middleware
 app.use(express.json());
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 app.use(express.urlencoded());
 app.use(cors())
 

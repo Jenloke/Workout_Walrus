@@ -54,7 +54,7 @@
           <ion-label>{{weight}}</ion-label>
         </ion-item>
         <ion-item>
-          <ion-label>BMI</ion-label>
+          <ion-label>{{bmi}}</ion-label>
         </ion-item>
         <ion-item>
           <ion-button>Update</ion-button>
@@ -82,16 +82,11 @@
 import { IonButton, IonAvatar, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonLabel, IonList, IonCard, IonCardContent } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import ExploreContainer from '@/components/ExploreContainer.vue';
-import tab2 from './Tab2Page.js'
+import tab2 from './js/Tab2Page.js'
 
-/* export default {
-  ...tab2
-} */
 export default defineComponent({
   components: { IonPage, IonContent },
   ...tab2
 });
-
-
 
 </script>

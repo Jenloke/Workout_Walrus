@@ -17,12 +17,6 @@
           <ion-icon aria-hidden="true" :icon="flame" />
           <ion-label>Calories Burned</ion-label>
         </ion-tab-button>
-
-        <ion-tab-button tab="home" href="/tabs/home">
-          <ion-icon aria-hidden="true" :icon="home" />
-          <ion-label>Home</ion-label>
-        </ion-tab-button>
-
       </ion-tab-bar>
     </ion-tabs>
   </ion-page>

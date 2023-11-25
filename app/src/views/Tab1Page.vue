@@ -90,7 +90,7 @@
   </ion-page>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonLabel, IonList } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import ExploreContainer from '@/components/ExploreContainer.vue';
